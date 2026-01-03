@@ -1,116 +1,27 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>本店电子菜单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>测试菜单</title>
     <style>
-        body { margin: 0; font-family: "PingFang SC", "Helvetica Neue", sans-serif; background: #f7f7f7; height: 100vh; overflow: hidden; }
-        .app { display: flex; height: 100vh; }
-        /* 左侧分类导航 */
-        .sidebar { width: 90px; background: #f0f0f0; overflow-y: auto; height: 100%; border-right: 1px solid #e0e0e0; }
-        .nav-item { padding: 20px 10px; font-size: 13px; text-align: center; color: #666; cursor: pointer; border-bottom: 1px solid #e5e5e5; }
-        .nav-item.active { background: #fff; color: #000; font-weight: bold; border-left: 4px solid #ffcc00; }
-        /* 右侧菜品列表 */
-        .main { flex: 1; background: #fff; overflow-y: auto; scroll-behavior: smooth; }
-        .category-section { padding: 0 15px 20px 15px; }
-        .category-title { font-size: 15px; font-weight: bold; padding: 15px 0; position: sticky; top: 0; background: #fff; z-index: 10; border-bottom: 1px solid #f2f2f2; margin-bottom: 5px; color: #333; }
-        /* 菜品行 */
-        .dish-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid #f9f9f9; }
-        .dish-name { font-size: 15px; color: #333; flex: 1; padding-right: 10px; }
-        .dish-price { font-size: 16px; color: #fb4d41; font-weight: bold; width: 60px; text-align: right; }
-        .dish-price::before { content: "¥"; font-size: 11px; margin-right: 2px; }
+        body { font-family: sans-serif; margin: 0; display: flex; height: 100vh; }
+        .sidebar { width: 80px; background: #eee; text-align: center; padding-top: 20px; }
+        .content { flex: 1; padding: 20px; }
+        .food-item { border-bottom: 1px solid #ddd; padding: 10px 0; display: flex; }
+        .food-item img { width: 60px; height: 60px; margin-right: 10px; border-radius: 5px; }
     </style>
 </head>
 <body>
-
-<div class="app">
-    <div class="sidebar">
-        <div class="nav-item active" onclick="go('cat1', this)">家常小炒</div>
-        <div class="nav-item" onclick="go('cat2', this)">盖饭</div>
-        <div class="nav-item" onclick="go('cat3', this)">炒饭</div>
-        <div class="nav-item" onclick="go('cat4', this)">面类</div>
-        <div class="nav-item" onclick="go('cat5', this)">抄手</div>
-        <div class="nav-item" onclick="go('cat6', this)">粉类</div>
-        <div class="nav-item" onclick="go('cat7', this)">米线</div>
-        <div class="nav-item" onclick="go('cat8', this)">刀削面</div>
-        <div class="nav-item" onclick="go('cat9', this)">水饺类</div>
-        <div class="nav-item" onclick="go('cat10', this)">汤类</div>
-        <div class="nav-item" onclick="go('cat11', this)">酒水类</div>
-        <div class="nav-item" onclick="go('cat12', this)">其他类</div>
+    <div class="sidebar">分类一</div>
+    <div class="content">
+        <h2>招牌菜</h2>
+        <div class="food-item">
+            <img src="dish.jpg"> <div>
+                <div>测试菜名</div>
+                <div style="color:red">￥99</div>
+            </div>
+        </div>
     </div>
-
-    <div class="main">
-        <div id="cat1" class="category-section">
-            <div class="category-title">家常小炒</div>
-            <div class="dish-row"><div class="dish-name">宫爆肉丁</div><div class="dish-price">28.00</div></div>
-            <div class="dish-row"><div class="dish-name">土豆烧排骨</div><div class="dish-price">38.00</div></div>
-            <div class="dish-row"><div class="dish-name">凉拌鸡块</div><div class="dish-price">38.00</div></div>
-            <div class="dish-row"><div class="dish-name">干煸苦瓜</div><div class="dish-price">18.00</div></div>
-            <div class="dish-row"><div class="dish-name">酸辣土豆丝</div><div class="dish-price">16.00</div></div>
-            <div class="dish-row"><div class="dish-name">家常豆腐</div><div class="dish-price">18.00</div></div>
-            <div class="dish-row"><div class="dish-name">苦瓜肉片</div><div class="dish-price">24.00</div></div>
-            <div class="dish-row"><div class="dish-name">宫爆鸡丁</div><div class="dish-price">28.00</div></div>
-            <div class="dish-row"><div class="dish-name">鱼香茄子</div><div class="dish-price">18.00</div></div>
-            <div class="dish-row"><div class="dish-name">小炒肉</div><div class="dish-price">24.00</div></div>
-            <div class="dish-row"><div class="dish-name">水煮肉片</div><div class="dish-price">38.00</div></div>
-            <div class="dish-row"><div class="dish-name">回锅肉</div><div class="dish-price">24.00</div></div>
-        </div>
-
-        <div id="cat2" class="category-section">
-            <div class="category-title">盖饭</div>
-            <div class="dish-row"><div class="dish-name">青笋木耳肉片盖饭</div><div class="dish-price">16.00</div></div>
-            <div class="dish-row"><div class="dish-name">素土豆丝盖饭</div><div class="dish-price">14.00</div></div>
-            <div class="dish-row"><div class="dish-name">番茄炒蛋盖饭</div><div class="dish-price">16.00</div></div>
-            <div class="dish-row"><div class="dish-name">回锅肉盖饭</div><div class="dish-price">16.00</div></div>
-            <div class="dish-row"><div class="dish-name">牛肉土豆盖饭</div><div class="dish-price">16.00</div></div>
-        </div>
-
-        <div id="cat3" class="category-section">
-            <div class="category-title">炒饭</div>
-            <div class="dish-row"><div class="dish-name">芹菜肉丝炒饭</div><div class="dish-price">15.00</div></div>
-            <div class="dish-row"><div class="dish-name">素土豆丝炒饭</div><div class="dish-price">13.00</div></div>
-            <div class="dish-row"><div class="dish-name">扬州炒饭</div><div class="dish-price">15.00</div></div>
-        </div>
-
-        <div id="cat4" class="category-section">
-            <div class="category-title">面类</div>
-            <div class="dish-row"><div class="dish-name">杂酱面 (大/小)</div><div class="dish-price">15/12</div></div>
-            <div class="dish-row"><div class="dish-name">酸菜肉丝面</div><div class="dish-price">12.00</div></div>
-            <div class="dish-row"><div class="dish-name">西红柿煎蛋面</div><div class="dish-price">13.00</div></div>
-            <div class="dish-row"><div class="dish-name">牛肉面 (大/小)</div><div class="dish-price">15/12</div></div>
-        </div>
-
-        <div id="cat5" class="category-section">
-            <div class="category-title">抄手</div>
-            <div class="dish-row"><div class="dish-name">老麻抄手</div><div class="dish-price">16.00</div></div>
-            <div class="dish-row"><div class="dish-name">红汤抄手</div><div class="dish-price">12.00</div></div>
-            <div class="dish-row"><div class="dish-name">脆绍抄手</div><div class="dish-price">14.00</div></div>
-            <div class="dish-row"><div class="dish-name">原汤抄手</div><div class="dish-price">10.00</div></div>
-        </div>
-
-        <div id="cat11" class="category-section">
-            <div class="category-title">酒水类</div>
-            <div class="dish-row"><div class="dish-name">可乐 / 雪碧</div><div class="dish-price">3.00</div></div>
-            <div class="dish-row"><div class="dish-name">椰子水 / 脉动</div><div class="dish-price">5.00</div></div>
-            <div class="dish-row"><div class="dish-name">勇闯啤酒</div><div class="dish-price">6.00</div></div>
-            <div class="dish-row"><div class="dish-name">北冰洋</div><div class="dish-price">6.00</div></div>
-        </div>
-        
-        <p style="text-align:center; color:#ccc; font-size:12px;">- 更多菜品请滑动查看 -</p>
-    </div>
-</div>
-
-<script>
-    function go(id, el) {
-        const target = document.getElementById(id);
-        if(target) {
-            target.scrollIntoView();
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            el.classList.add('active');
-        }
-    }
-</script>
-
 </body>
 </html>
